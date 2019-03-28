@@ -2,23 +2,37 @@ package com.zipcodewilmington.bakery.services;
 
 import com.zipcodewilmington.bakery.models.Baker;
 import com.zipcodewilmington.bakery.repositories.BakerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
+
+@Service
 public class BakerService {
     private BakerRepository repository;
 
-    public BakerService(BakerRepository repository) {
+
+    @Autowired
+    public BakerService(BakerRepository repository)
+
+    {
         this.repository = repository;
     }
 
-    public Iterable<Baker> index() {
+    public Iterable<Baker> index()
+
+    {
         return repository.findAll();
     }
 
     public Baker show(Long id) {
+
+
         return repository.findById(id).get();
     }
 
-    public Baker create(Baker baker) {
+    public Baker create(Baker baker)
+    {
         return repository.save(baker);
     }
 
